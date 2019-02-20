@@ -1,7 +1,7 @@
 import React from 'react';
 import {Icon} from 'antd';
 
-import logo from '../../../static/image/logo_.jpg';
+import logo from '../../../../../static/image/logo_.jpg';
 
 class Logo extends React.Component{
     constructor(props){

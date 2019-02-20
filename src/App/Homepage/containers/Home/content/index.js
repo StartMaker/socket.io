@@ -3,7 +3,7 @@ import React from 'react';
 
 const {Content} = Layout;
 
-import DefaultModule from './Folder/index';
+import DefaultModule from './Folder';
 
 class Main extends React.Component{
     constructor(props){

@@ -2,6 +2,7 @@ const path = require('path');
 //处理模板html自动引入JS
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 //清除文件夹
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 //js压缩插件
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
@@ -9,15 +10,15 @@ const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const webpack = require('webpack');
 module.exports = {
-    mode: "development",
+    mode: "production",
     entry: {
         app: path.join(__dirname, "src/index.js")
     },
     output: {
-        filename: '[name].js',//名字已入口entry 名字命名
+        filename: 'js/[name]-[contentHash].js',//名字已入口entry 名字命名
         path: path.join(__dirname, 'dist'),//输出文件的路径
-        publicPath: '/',
-        chunkFilename: "[name].js"
+        publicPath: "./",
+        chunkFilename: "js/[name]chunk-[contentHash].js"
     },
     module: {
         rules: [
@@ -43,7 +44,11 @@ module.exports = {
                     {
                         loader: 'url-loader',
                         options: {
-                            limit: 6000
+                            limit: 3000,
+                            options: {
+                                outputPath: './images',
+                                publicPath: './images'
+                            },
                         }
                     },
                     {
@@ -59,7 +64,11 @@ module.exports = {
                 test: /\.(png|svg|jpg|gif)$/,
                 use: [
                     {
-                        loader: 'file-loader'
+                        loader: 'file-loader',
+                        options: {
+                            outputPath: './images',
+                            publicPath: '/A10/dist/images'
+                        },
                     },
 
                 ]
@@ -105,28 +114,30 @@ module.exports = {
     },
     // 输出源码
     devtool: 'source-map',
-    /**
-     * 一些优化配置
-     */
-    // optimization: {
-    //     // 压缩js
-    //     minimizer: [
-    //       new UglifyJsPlugin()
-    //     ],
-    //     // 抽离公用的js部分 , 配置自动提取node_modules里用到的模块如jquery
-    //     splitChunks: {
-    //         cacheGroups: {
-    //             vendor: {
-    //                 // test: /\.js$/,
-    //                 test: /[\\/]node_modules[\\/]/,
-    //                 chunks: "initial", //表示显示块的范围，有三个可选值：initial(初始块)、async(按需加载块)、all(全部块)，默认为all;
-    //                 name: "vendor", //拆分出来块的名字(Chunk Names)，默认由块名和hash值自动生成；
-    //                 enforce: true,
-    //             },
-    //
-    //         }
-    //     }
-    // },
+    optimization: {
+        // 压缩js
+        minimizer: [
+            new UglifyJsPlugin({
+                uglifyOptions: {
+                    ie8: true,
+                    ecma: 8
+                }
+            })
+        ],
+        // 抽离公用的js部分 , 配置自动提取node_modules里用到的模块如jquery
+        splitChunks: {
+            cacheGroups: {
+                vendor: {
+                    // test: /\.js$/,
+                    test: /[\\/]node_modules[\\/]/,
+                    chunks: "async", //表示显示块的范围，有三个可选值：initial(初始块)、async(按需加载块)、all(全部块)，默认为all;
+                    enforce: true,
+                    name: 'common'
+                },
+
+            }
+        }
+    },
     resolve: {
         extensions: ['.js','.jsx']
     },
@@ -136,7 +147,7 @@ module.exports = {
         new CleanWebpackPlugin(['dist']),
         //设置默认环境变量
         new webpack.DefinePlugin({
-            'process.env.NODE_ENV': '"production"',
+            'process.env.NODE_ENV': "production",
             LOCAL_ROOT: JSON.stringify("http://ziksang.com")
         }),
         /**
@@ -145,14 +156,15 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: "./src/index-template.html",
             inject: true,
+            minify: true,
             favicon: './src/App/static/image/logo.jpg',
-            filename: "index.html",
-            hash: true
+            filename: "./index.html",
+            hash: true,
+            contentHash: true,
+            cache: true
         }),
-        new ExtractTextWebpackPlugin({ // 在plugins中配置属性
-            filename: 'css/[name].css' // 配置提取出来的css名称
-        }),
-        //配合devServer 实现热更新
-        new webpack.HotModuleReplacementPlugin()
+        new MiniCssExtractPlugin({ // 在plugins中配置属性
+            filename: '[name]-[contentHash].css' // 配置提取出来的css名称
+        })
     ]
 };

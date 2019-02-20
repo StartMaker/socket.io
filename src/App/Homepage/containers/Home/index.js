@@ -1,9 +1,8 @@
 import {Layout} from 'antd';
 import React from 'react';
-import {withRouter} from 'react-router-dom';
 
-import Header from './header/index';
-import Content from './content/index';
+import Header from './header';
+import Content from './content';
 import './styles.less';
 
 class Home extends React.Component{
@@ -73,4 +72,4 @@ class Home extends React.Component{
     }
 }
 
-export default withRouter(Home);
+export default Home;

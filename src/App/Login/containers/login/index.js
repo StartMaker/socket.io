@@ -4,20 +4,20 @@ import {withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 
 import MyInput from './input';
-import {Login} from "../../action/ajax";
+import {Login} from "../../../../action/ajax";
 
 class LoginForm extends React.Component{
     constructor(props){
         super(props);
     }
     componentDidMount() {
-        console.log(this)
+        console.log(this);
     }
 
     login = (ev) => {
         ev.preventDefault();
         const {dispatch, history} = this.props;
-        history.push({pathname:'/home'});
+        history.push({pathname:'/homepage'});
         if(this.username.state.value === ''||this.password.state.value === ''){
             return ;
         }

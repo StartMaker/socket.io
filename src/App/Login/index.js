@@ -5,11 +5,11 @@ import Media from 'react-media';
 
 const {Header,Footer,Content} = Layout;
 
-import MyMenu from './nav/index';
+import MyMenu from './components/nav';
 import logo from '../static/image/logo_.jpg';
 import './styles.less';
-import Form from './login/index';
-import MySmallMenu from './smallNav/index';
+import Form from './containers/login/index';
+import MySmallMenu from './components/smallNav/index';
 
 class LoginPage extends React.Component{
     constructor(props){

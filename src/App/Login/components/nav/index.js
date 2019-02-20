@@ -1,6 +1,6 @@
 import React from "react";
 import {Menu} from 'antd';
-import {Link,withRouter} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 class MyMenu extends React.Component{
     constructor(props){
@@ -21,4 +21,4 @@ class MyMenu extends React.Component{
     }
 }
 
-export default withRouter(MyMenu);
+export default MyMenu;

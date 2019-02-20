@@ -4,9 +4,9 @@ import Media from 'react-media';
 
 const {Header} = Layout;
 
-import Logo from './logo/index';
-import NormalNav from './normal-window/index';
-import SmallNav from './small-window/index';
+import Logo from './logo';
+import NormalNav from './normal-window';
+import SmallNav from './small-window';
 
 class Nav extends React.Component{
     constructor(props){

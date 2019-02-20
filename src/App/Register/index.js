@@ -7,7 +7,7 @@ const {Content} = Layout;
 
 import MyInput from './input';
 import './styles.less';
-import {Register} from "../action/ajax";
+import {Register} from "../../action/ajax";
 
 class RegisterForm extends React.Component{
     constructor(props){

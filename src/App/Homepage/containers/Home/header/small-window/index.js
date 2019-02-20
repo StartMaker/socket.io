@@ -2,9 +2,9 @@ import React from 'react';
 import {Icon,Button,Menu} from 'antd';
 import {Link} from 'react-router-dom';
 
-import Search from '../../../components/search/index';
-import DropDown from '../nav-item-pull/index';
-import Create from '../createFile/index';
+import Search from '../../../../../../components/search';
+import DropDown from '../nav-item-pull';
+import Create from '../createFile';
 
 class SmallWindow extends React.Component{
     constructor(props){

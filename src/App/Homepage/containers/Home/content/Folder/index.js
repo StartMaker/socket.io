@@ -1,7 +1,7 @@
 import React from 'react';
 import {Row} from 'antd';
 
-import MyModule from './folder/index';
+import MyModule from './folder';
 
 class Index extends React.Component{
     constructor(props){

@@ -1,7 +1,7 @@
 import React from 'react';
 
-import NavSearch from '../../../components/search/index';
-import CreateFile from '../createFile/index';
+import NavSearch from '../../../../../../components/search';
+import CreateFile from '../createFile';
 import PullMenu from "../nav-item-pull";
 
 class Normal extends React.Component{

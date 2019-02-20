@@ -1,12 +1,12 @@
 import React from 'react';
 import {Icon,Menu,Dropdown} from 'antd';
-import {Link,withRouter} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 class MySmallNav extends React.Component{
     constructor(props){
         super(props);
     }
-    menu=()=>{
+    menu = ()=>{
         return (
             <Menu>
                 {this.props.nav.items.map((item,index)=>{
@@ -28,4 +28,4 @@ class MySmallNav extends React.Component{
     };
 }
 
-export default withRouter(MySmallNav);
+export default MySmallNav;
