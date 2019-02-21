@@ -11,7 +11,7 @@ const webpack = require('webpack');
 module.exports = {
     mode: "development",
     entry: {
-        app: path.join(__dirname, "src/content.js")
+        app: path.join(__dirname, "src/index.js")
     },
     output: {
         filename: '[name].js',//名字已入口entry 名字命名

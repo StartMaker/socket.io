@@ -9,7 +9,7 @@
     "watch": "webpack --watch --mode=production",
     "start": "webpack-dev-server --open --mode=development --node postcss",
     "startServer": "webpack-dev-server --open --mode=development",
-    "devserver": "node dev-server.js"
+    "devserver": "webpack-dev-server --config dev-server.js"
   },
   "author": "李天鹏",
   "license": "ISC",

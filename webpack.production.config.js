@@ -139,7 +139,7 @@ module.exports = {
         }
     },
     resolve: {
-        extensions: ['.js','.jsx']
+        extensions: ['json','.js','.jsx']
     },
     plugins: [
         new ForkTsCheckerWebpackPlugin(),
