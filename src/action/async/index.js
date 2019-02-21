@@ -1,6 +1,7 @@
 import {REGISTER, LOGIN} from '../event';
 import URL from '../url';
 
+/*封装请求体*/
 /*注册*/
 export const getRegisterAction = (data) =>{
     return {
@@ -25,5 +26,5 @@ export const getLoginAction = (data) =>{
 /*异步请求地址*/
 const AXIOS_URL = {
     'REGISTER': URL + '/user/register',
-    'LOGIN': URL + '/user/login'
+    'LOGIN': URL + '/user/login-form'
 };

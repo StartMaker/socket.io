@@ -11,7 +11,7 @@ const webpack = require('webpack');
 module.exports = {
     mode: "development",
     entry: {
-        app: path.join(__dirname, "src/index.js")
+        app: path.join(__dirname, "src/content.js")
     },
     output: {
         filename: '[name].js',//名字已入口entry 名字命名
@@ -128,7 +128,7 @@ module.exports = {
     //     }
     // },
     resolve: {
-        extensions: ['.js','.jsx']
+        extensions: [".js", ".json", ".jsx"]
     },
     plugins: [
         new ForkTsCheckerWebpackPlugin(),

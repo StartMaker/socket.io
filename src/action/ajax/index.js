@@ -2,8 +2,9 @@ import Axios from 'axios';
 import {REGISTER, LOGIN} from '../event';
 import {getRegisterAction,getLoginAction} from '../async';
 
-/*请求列表*/
+/*请求列表-发起请求*/
 export const Register = (action,dispatch) => {
+    /*请求发起*/
     dispatch(RequestPost(getRegisterAction(action)));
     return AxiosRequest(getRegisterAction(action),dispatch);
 };
@@ -27,6 +28,7 @@ const AxiosRequest = (action,dispatch) => {
             dispatch(RequestFail(action,reason));
         });
 };
+
 /*异步封装*/
 const getAxiosData = (action) => {
       switch (action.todo) {
@@ -76,9 +78,8 @@ const RequestReceive = (action) =>{
     return {
         isAxios: true,
         date: Date.now(),
-        type: REQUEST_RECEIVE,
-        data: data,
-        todo: todo
+        type: todo,
+        data: data
     };
 };
 

@@ -3,9 +3,9 @@ import {hot} from "react-hot-loader";
 import {BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";
 import {ConfigProvider} from "antd";
 
-import Login from './App/Login';
-import Register from './App/Register';
-import Homepage from './App/Homepage';
+import Login from './App/login';
+import Register from './App/register';
+import Homepage from './App/homepage';
 import NotFound from './components/notFound';
 import Loading from './components/loading';
 import Error from './components/error';
@@ -15,7 +15,8 @@ class App extends React.Component{
         super(props);
     }
     componentDidCatch(error, errorInfo) {
-
+        console.log(error);
+        console.log(errorInfo);
     }
     render() {
         return (

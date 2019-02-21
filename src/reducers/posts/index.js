@@ -1,8 +1,6 @@
 import {REQUEST_RECEIVE,REQUEST_POST,REQUEST_FAIL} from "../../action/ajax";
 
-const initState = {};
-
-export default function (state = initState, action) {
+export default function (state = {}, action) {
     switch (action.type) {
         case REQUEST_RECEIVE:
         case REQUEST_POST:
