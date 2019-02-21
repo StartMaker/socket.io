@@ -1,7 +1,7 @@
 import React from 'react';
 import {Layout} from "antd";
 
-// import Side from './sider';
+import Sider from './side';
 import Content from './content';
 
 class Upload extends React.Component{
@@ -11,8 +11,8 @@ class Upload extends React.Component{
     render(){
         return (
             <Layout>
-                {/*<Side/>*/}
-                <Content/>
+                <Sider page='upload'/>
+                <Content page='upload'/>
             </Layout>
         );
     }

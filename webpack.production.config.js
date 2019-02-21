@@ -12,7 +12,7 @@ const webpack = require('webpack');
 module.exports = {
     mode: "production",
     entry: {
-        app: path.join(__dirname, "src/content.js")
+        app: path.join(__dirname, "src/index.js")
     },
     output: {
         filename: 'js/[name]-[contentHash].js',//名字已入口entry 名字命名

@@ -1,4 +1,4 @@
-import EVENTS from "../../action/event";
+import {Events} from "../../action/event";
 
 const initState = {
     character: null,
@@ -7,11 +7,11 @@ const initState = {
 
 export default function (state = initState, action) {
     switch (action.type) {
-        case EVENTS.LOGIN:
+        case Events.LOGIN:
             return {
                 ...state
             };
-        case EVENTS.REGISTER:
+        case Events.REGISTER:
             return;
         default:
             return state;

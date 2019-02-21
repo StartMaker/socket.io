@@ -2,10 +2,10 @@ import {combineReducers} from "redux";
 
 import user from './user';
 import posts from './posts'
-import folders from './folders';
+import homepage from './homepage';
 
 export default combineReducers({
     user,
     posts,
-    folders
+    homepage
 });

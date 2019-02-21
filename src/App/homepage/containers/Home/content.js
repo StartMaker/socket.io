@@ -1,14 +1,23 @@
 import React from 'react';
 import {connect} from "react-redux";
 
-import Content from '../../components/home/content';
+import HomepageContent from '../../components/home/content';
+import {initHomePage} from '../../../../action/sync';
 
 const mapStateToProps = (state) => {
-    console.log(state);
-    const {folders} = state;
-    return folders;
+    const {homepage} = state;
+    return {homepage};
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        init: () => {
+            return dispatch(initHomePage());
+        }
+    }
 };
 
 export default connect(
-    mapStateToProps
-)(Content);
+    mapStateToProps,
+    mapDispatchToProps
+)(HomepageContent);

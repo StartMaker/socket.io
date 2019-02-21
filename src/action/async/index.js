@@ -1,11 +1,11 @@
-import {REGISTER, LOGIN} from '../event';
+import {Events} from '../event';
 import URL from '../url';
 
 /*封装请求体*/
 /*注册*/
 export const getRegisterAction = (data) =>{
     return {
-        todo: REGISTER,
+        todo: Events.REGISTER,
         data: {
             data: data,
             url: AXIOS_URL[REGISTER]
@@ -15,7 +15,7 @@ export const getRegisterAction = (data) =>{
 
 export const getLoginAction = (data) =>{
     return {
-        todo: LOGIN,
+        todo: Events.LOGIN,
         data: {
             data: data,
             url: AXIOS_URL[LOGIN]
