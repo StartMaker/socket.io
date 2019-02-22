@@ -49,8 +49,9 @@ class Index extends React.Component{
         );
     };
     render() {
+        const {grid} = this.props;
         return (
-            <Col xs={24} sm={24} md={5} lg={5} xl={4} xxl={3} className='col' onClick={this.go}>
+            <Col {...grid} className='col' onClick={this.go}>
                 {this.createModules()}
             </Col>
         );

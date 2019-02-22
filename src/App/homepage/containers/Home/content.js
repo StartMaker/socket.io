@@ -11,13 +11,10 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        init: () => {
-            return dispatch(initHomePage());
-        }
     }
 };
 
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps
+    // mapStateToProps,
+    // mapDispatchToProps
 )(HomepageContent);

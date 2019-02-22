@@ -3,22 +3,26 @@ import {Layout, Row} from "antd";
 
 const {Content} = Layout;
 
+import Column from '../../components/column';
+import {Consumer} from '../../context';
+
 class UploadContent extends React.Component{
     constructor(props){
         super(props);
     }
-    componentDidMount() {
-        console.log(this);
-    }
-    componentWillMount() {
-        const {init} = this.props;
-        init();
-    }
-
     render() {
         return (
             <Content>
-                <Row type='flex'></Row>
+                <Row type='flex'>
+                    <Consumer>
+                        {
+                            (provider) => {
+                                const {modules, grid} = provider;
+                                return modules.map((value,index) =><Column grid={grid} key={index} {...value}></Column>);
+                            }
+                        }
+                    </Consumer>
+                </Row>
             </Content>
         );
     }

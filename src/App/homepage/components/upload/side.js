@@ -9,7 +9,7 @@ class UploadSide extends React.Component{
     }
     render(){
         return (
-            <Sider page='upload' theme='light' width='350' collapsible={true} collapsedWidth={0}>
+            <Sider page='upload' theme='light' width='15%' collapsible={true} collapsedWidth={0}>
                 <Input.Group compact={true}>
                     <Input size='large' placeholder='搜索数据源' addonAfter={<Button type='primary' block={true}>+创建数据</Button>}/>
                 </Input.Group>

@@ -1,32 +1,27 @@
-import {Col, Layout, Row} from 'antd';
+import { Layout, Row} from 'antd';
 import React from 'react';
 
 const {Content} = Layout;
 
 import Column from '../column';
+import {Consumer} from '../../context';
 
 class HomepageContent extends React.Component{
     constructor(props){
         super(props);
     }
-    componentDidMount() {
-        console.log(this);
-    }
-    componentWillMount() {
-        const {init} = this.props;
-        init();
-    }
-
     render() {
-        const {homepage:{modules}} = this.props;
         return (
             <Content page='home'>
                 <Row type='flex'>
-                    {modules.map((value,index)=>{
-                        return (
-                            <Column key={index} {...value}></Column>
-                        );
-                    })}
+                    <Consumer>
+                        {
+                            (provider)=> {
+                                const {modules,grid} = provider;
+                                return modules.map((value,index)=><Column key={index} {...value} grid={grid}></Column>);
+                            }
+                        }
+                    </Consumer>
                 </Row>
             </Content>
         )
