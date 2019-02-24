@@ -154,7 +154,7 @@ module.exports = {
          * chunks 代码块,vendor 为固定静态资源splitChunks配置,各个模板的入口 对应entry入口模块
          */
         new HtmlWebpackPlugin({
-            template: "./src/index-template.html",
+            template: "./src/index-uploadFIle.html",
             inject: true,
             minify: true,
             favicon: './src/App/static/image/logo.jpg',

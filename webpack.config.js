@@ -17,7 +17,13 @@ module.exports = {
         filename: '[name].js',//名字已入口entry 名字命名
         path: path.join(__dirname, 'dist'),//输出文件的路径
         publicPath: '/',
-        chunkFilename: "[name].js"
+        chunkFilename: "[name].js",
+        libraryTarget: 'var',
+        library: 'XLSX'
+    },
+    node: {
+        process: false,
+        Buffer: false
     },
     module: {
         rules: [
@@ -128,7 +134,8 @@ module.exports = {
     //     }
     // },
     resolve: {
-        extensions: [".js", ".json", ".jsx"]
+        extensions: [".js", ".json", ".jsx"],
+        alias: { "./dist/cpexcel.js": "" }
     },
     plugins: [
         new ForkTsCheckerWebpackPlugin(),

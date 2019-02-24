@@ -40,7 +40,7 @@ class Index extends React.Component{
             );
         };
         return  (
-            <Card cover={<Avatar icon='addFile' type={type}/>}>
+            <Card cover={<Avatar icon='addFile' type={type}/>} onClick={this.go}>
                 <Meta
                     title={title}
                 />
@@ -51,7 +51,7 @@ class Index extends React.Component{
     render() {
         const {grid} = this.props;
         return (
-            <Col {...grid} className='col' onClick={this.go}>
+            <Col {...grid} className='col'>
                 {this.createModules()}
             </Col>
         );

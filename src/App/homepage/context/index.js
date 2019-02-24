@@ -27,7 +27,7 @@ export const ProviderForHomePage = {
         }
     ],
     grid: {
-        xs: 24,
+        xs:24,
         sm:24,
         md:5,
         lg:5,

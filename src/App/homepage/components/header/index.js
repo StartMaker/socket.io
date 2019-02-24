@@ -30,7 +30,7 @@ class Nav extends React.Component{
                 },
                 {
                     text: '退出',
-                    url: '/'
+                    url: '/login'
                 }
             ]
         }

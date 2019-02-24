@@ -11,13 +11,16 @@ class NotFound extends React.Component{
     componentDidMount() {
         console.log(this.props);
     }
-
+    goBack = () => {
+        const {history} = this.props;
+        history.goBack();
+    };
     render() {
         return (
             <div id='notFound'>
                 <h1>404</h1>
                 <h4>Not Found</h4>
-                <Link to='/'>Go Back</Link>
+                <a onClick={this.goBack}>Go Back</a>
             </div>
         );
     }

@@ -155,7 +155,7 @@
     .ant-layout-sider[page='upload']{
         &{
             padding: 25px 15px;
-            max-width: 350px;
+            max-width: 500px !important;
         }
         &:hover .ant-layout-sider-zero-width-trigger{
             display: block;
@@ -169,13 +169,99 @@
             .ant-input-group-addon{
                 padding: 0;
                 background-color: rgb(24, 144, 255);
+                transition: 0.5s;
+                .ant-btn{
+                    background-color: transparent;
+                    border: none;
+                    color: whitesmoke;
+                }
+            }
+            .ant-input-group-addon:hover{
+                opacity: 0.75;
             }
             .ant-input{
                 background-color: rgb(240, 245, 250);
             }
         }
     }
+    .ant-default-affix{
+        position: fixed;
+        z-index: 999;
+        top: 5rem;
+        right: 1rem;
+    }
+}
+.ant-drawer{
+    .ant-drawer-title{
+        font-weight: bold;
+    }
+    .ant-drawer-body{
+        .ant-btn-group{
+            .ant-input-group-addon{
+                background-color: rgb(24, 144, 255);
+                transition: 0.5s;
+                &:hover{
+                    opacity: 0.75;
+                }
+                .ant-btn{
+                    background-color: transparent;
+                    border: none;
+                    color: white;
+                }
+            }
+        }
+    }
 }
 .dropdown-menu{
     width: 8rem;
+}
+.side-modal-upload{
+    @media screen {
+        @media (min-width: 769px){
+            width: 800px !important;
+            .ant-modal-content{
+                height: 600px;
+                .upload{
+                    height: 200px;
+                    .ant-input-group-wrapper{
+                        height: 100%;
+                        .ant-input-group{
+                            height: 100%;
+                            .ant-input{
+                                height: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        @media (max-width: 768px){
+            width: 100% !important;
+            .ant-modal-content{
+                height: 520px;
+                .upload{
+                    height: 180px;
+                    .ant-input-group-wrapper{
+                        height: 100%;
+                        .ant-input-group{
+                            height: 100%;
+                            .ant-input{
+                                height: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.ant-modal-content{
+    .ant-modal-body{
+        height: 78%;
+    }
+    .ant-form-item{
+        .ant-select{
+            width: 100%;
+        }
+    }
 }

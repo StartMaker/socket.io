@@ -1,18 +1,18 @@
 import React from 'react';
-import {Layout, Input, Button, List, Divider} from "antd";
+import {Divider, Input, Layout, List} from "antd";
 
+import CreateDataForm from "../../uploadData";
+import DataSearch from './data-search';
 const {Sider} = Layout;
 
-class UploadSide extends React.Component{
+class NormalSider extends React.Component{
     constructor(props){
         super(props);
     }
     render(){
         return (
             <Sider page='upload' theme='light' width='15%' collapsible={true} collapsedWidth={0}>
-                <Input.Group compact={true}>
-                    <Input size='large' placeholder='搜索数据源' addonAfter={<Button type='primary' block={true}>+创建数据</Button>}/>
-                </Input.Group>
+                <DataSearch/>
                 <Divider/>
                 <List>
                     <List.Item>
@@ -24,4 +24,4 @@ class UploadSide extends React.Component{
     }
 }
 
-export default UploadSide;
+export default NormalSider;

@@ -38,7 +38,7 @@ class LoginPage extends React.Component{
                     <div className='logo'>
                         <img src={logo} alt='BI平台' title='五只小猪'/>
                     </div>
-                    <Media query='(min-width: 768px)'>
+                    <Media query='(min-width: 769px)'>
                         <MyMenu nav={this.props.nav}/>
                     </Media>
                     <Media query='(max-width: 768px)'>
