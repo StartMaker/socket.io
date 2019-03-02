@@ -1,5 +1,5 @@
 import Axios from 'axios';
-import {REGISTER, LOGIN} from '../event';
+import {Events} from '../event';
 import {getRegisterAction,getLoginAction} from '../async';
 
 /*请求列表-发起请求*/
@@ -8,20 +8,31 @@ export const Register = (action,dispatch) => {
     dispatch(RequestPost(getRegisterAction(action)));
     return AxiosRequest(getRegisterAction(action),dispatch);
 };
-export const Login = (action,dispatch) =>{
+// export const Login = (action,dispatch) =>{
+//     dispatch(RequestPost(getLoginAction(action)));
+//     return AxiosRequest(getLoginAction(action),dispatch);
+// };
+
+export const Login = action => dispatch =>{
+    console.log(getLoginAction(action));
     dispatch(RequestPost(getLoginAction(action)));
-    return AxiosRequest(getLoginAction(action),dispatch);
+
+    dispatch(AxiosRequest(getLoginAction(action)));
+    // return AxiosRequest(getLoginAction(action));
 };
 
 
 /*封装Axios*/
-const AxiosRequest = (action,dispatch) => {
+const AxiosRequest = action => dispatch => {
+    console.log(dispatch);
     return Axios(getAxiosData(action))
         .then(function (Response) {
             const {code,data} = Response;
             switch (code) {
-                case '0':
+                case '200':
                     return dispatch(RequestReceive(action,data));
+                default:
+                    console.log(Response);
             }
         })
         .catch(function (reason) {
@@ -32,7 +43,9 @@ const AxiosRequest = (action,dispatch) => {
 /*异步封装*/
 const getAxiosData = (action) => {
       switch (action.todo) {
-          case REGISTER:
+          case Events.REGISTER:
+              return Object.assign(action.data , AXIOS_CONFIG_NORMAL);
+          case Events.LOGIN:
               return Object.assign(action.data , AXIOS_CONFIG_NORMAL);
       }
 };
@@ -55,31 +68,35 @@ const RequestPost = (action) =>{
     return {
         isAxios: true,
         date: Date.now(),
-        data: data,
+        request: data,
         type: REQUEST_POST,
         todo: todo
     };
 };
 /*请求失败*/
-const RequestFail = (action) =>{
+const RequestFail = (action,reason) =>{
     const {data,todo} = action;
     return {
         isAxios: true,
         date: Date.now(),
         type: REQUEST_FAIL,
         data: data,
-        todo: todo
+        todo: todo,
+        reason: reason
     };
 };
 
 /*请求成功*/
-const RequestReceive = (action) =>{
+const RequestReceive = (action,response) =>{
+    console.log(action);
+    console.log(response);
     const {data,todo} = action;
     return {
         isAxios: true,
         date: Date.now(),
         type: todo,
-        data: data
+        data: data,
+        response: response
     };
 };
 

@@ -31,7 +31,6 @@ class App extends React.Component{
                             <Route component={Homepage} path='/homepage'/>
                             <Route component={Error} path='/error'/>
                             <Route component={NotFound} path='*'/>
-                            <Redirect to='/login'/>
                         </Switch>
                     </Router>
                 </Suspense>

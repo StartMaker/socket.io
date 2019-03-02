@@ -16,14 +16,18 @@ class LoginForm extends React.Component{
     login = (ev) => {
         ev.preventDefault();
         const {dispatch, history} = this.props;
-        history.push({pathname:'/homepage'});
+        // history.push({pathname:'/homepage'});
         if(this.username.state.value === ''||this.password.state.value === ''){
             return ;
         }
-        // login({
-        //     useName:  this.username.state.value,
+        // Login({
+        //     userName:  this.username.state.value,
         //     userPassword: this.password.state.value
         // },dispatch);
+        dispatch(Login({
+            userName:  this.username.state.value,
+            userPassword: this.password.state.value
+        }));
     };
     register = () => {
         this.props.history.push({pathname:'/register'});
@@ -37,8 +41,8 @@ class LoginForm extends React.Component{
                 </Form.Item>
                 <Form.Item>
                     <MyInput
-                        placeholder='Enter your password'
-                        name='password'
+                        placeholder='Enter your username'
+                        name='username'
                         type='text'
                         iconType='user'
                         ref={node => this.username = node}

@@ -8,7 +8,7 @@ export const getRegisterAction = (data) =>{
         todo: Events.REGISTER,
         data: {
             data: data,
-            url: AXIOS_URL[REGISTER]
+            url: AXIOS_URL[Events.REGISTER]
         }
     }
 };
@@ -18,7 +18,7 @@ export const getLoginAction = (data) =>{
         todo: Events.LOGIN,
         data: {
             data: data,
-            url: AXIOS_URL[LOGIN]
+            url: AXIOS_URL[Events.LOGIN]
         }
     }
 };
@@ -26,5 +26,5 @@ export const getLoginAction = (data) =>{
 /*异步请求地址*/
 const AXIOS_URL = {
     'REGISTER': URL + '/user/register',
-    'LOGIN': URL + '/user/login-form'
+    'LOGIN': URL + '/user/login'
 };

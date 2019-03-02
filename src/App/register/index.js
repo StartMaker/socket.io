@@ -58,7 +58,7 @@ class RegisterForm extends React.Component{
                         <Form.Item>
                             <MyInput
                                 placeholder='Check your password'
-                                name='checkpassword'
+                                name='checkPassword'
                                 type='password'
                                 ref={node => this.checkpassword = node}
                                 iconType='lock'
