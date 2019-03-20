@@ -1,26 +1,34 @@
-import React from 'react';
+'use strict';
+import React,{Suspense} from 'react';
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import {render} from 'react-dom';
-import {Provider} from 'react-redux';
 
-import Root from './root';
-import './App/static/css/default.less';
-import storeConfig from './storeConfig';
-
-const store = storeConfig();
+import Login from './App/login';
+import Room from './App/room';
+import './styles.less';
+import Loading from './components/loading';
 
 class App extends React.Component{
-    render() {
+    constructor(props){
+        super(props);
+    }
+    render(){
         return (
-            <Provider store={store}>
-                    <Root/>
-            </Provider>
+            <Suspense fallback={Loading}>
+                <Router>
+                    <Switch>
+                        <Route exact component={Login} path='/'/>
+                        <Route component={Room} path='/room'/>
+                    </Switch>
+                </Router>
+            </Suspense>
         );
     }
 }
 
 render(
     <App/>,
-    document.body
+    document.getElementById('root')
 );
 
 export default App;

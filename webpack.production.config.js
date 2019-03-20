@@ -78,14 +78,6 @@ module.exports = {
                 use: [
                     'style-loader',
                     'css-loader',
-                    // {
-                    //     loader: "postcss-loader",
-                    //     options: {
-                    //         plugins: [
-                    //             require('postcss-sprites')(postcssSpritesOpts)
-                    //         ]
-                    //     }
-                    // },
                     'postcss-loader',
                     'sass-loader'
                 ]
@@ -99,17 +91,6 @@ module.exports = {
                     "less-loader"
                 ]
             }
-            // {
-            //     test: /\.(svg(\?v=\d+\.\d+\.\d+)?)|(png|woff|woff2|ttf|eot)$/,
-            //     issuer: {
-            //         test: /\.jsx?$/
-            //     },
-            //     use: ['babel-loader', '@svgr/webpack', 'url-loader']
-            // },
-            // {
-            //     test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-            //     loader: 'url-loader'
-            // }
         ]
     },
     // 输出源码
@@ -150,14 +131,10 @@ module.exports = {
             'process.env.NODE_ENV': "production",
             LOCAL_ROOT: JSON.stringify("http://ziksang.com")
         }),
-        /**
-         * chunks 代码块,vendor 为固定静态资源splitChunks配置,各个模板的入口 对应entry入口模块
-         */
         new HtmlWebpackPlugin({
-            template: "./src/index-uploadFIle.html",
+            template: "./src/index-template.html",
             inject: true,
             minify: true,
-            favicon: './src/App/static/image/logo.jpg',
             filename: "./index.html",
             hash: true,
             contentHash: true,
